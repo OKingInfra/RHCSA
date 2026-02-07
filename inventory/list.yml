@@ -1,0 +1,5 @@
+- name: List files in directory
+  hosts: web
+  tasks:
+    - name: Run ls
+      ansible.builtin.shell: ls -l > /tmp/ansibleout.txt

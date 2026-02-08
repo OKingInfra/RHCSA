@@ -3,4 +3,4 @@ Using pretty much only the ansible built in shell for the plays.
 
 
 Basic ls -l on the target server users home dir
-ansible-playbook -i hosts.ini inventory/plays.yml --ask-become-pass
+ansible-playbook -i hosts.ini inventory/plays.yml --ask-pass --ask-become-pass

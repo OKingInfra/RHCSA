@@ -1,0 +1,33 @@
+### Remove Users ###
+- name: Remove Users
+  hosts: web
+  tasks:
+    - name: Remove ansible1
+      ansible.builtin.shell: userdel ansible1
+      become: true
+    - name: Remove ansible2
+      ansible.builtin.shell: userdel ansible2
+      become: true
+
+### Remove Users Home Dir ###
+
+- name: Remove Users Home Dir
+  hosts: web
+  tasks:
+    - name: Remove ansible1 home dir
+      ansible.builtin.shell: rm -rf /home/ansible1
+      become: true
+    - name: Remove ansible2 home dir
+      ansible.builtin.shell: rm -rf /home/ansible2
+      become: true
+
+### Remove Groups ###
+
+- name: Remove Group
+  hosts: web
+  tasks:
+    - name: Remove ansiblers group
+      ansible.builtin.shell: groupdel ansiblers
+      become: true
+
+### Permissions ###

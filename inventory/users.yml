@@ -1,19 +1,24 @@
-### Create Users########
+### Create Users ###
 - name: Create Users
   hosts: web
   tasks:
     - name: Create ansible1
-      ansible.builtin.shell: sudo useradd ansible1
+      ansible.builtin.shell: useradd ansible1
       become: true
     - name: Create ansible2
-      ansible.builtin.shell: sudo useradd ansible2
+      ansible.builtin.shell: useradd ansible2
       become: true
 
-### Create Groups#######
+### Create Groups and Add Users ###
 
+- name: Create Groups And Add Users
+  hosts: web
+  tasks:
+    - name: Create Ansible Group
+      ansible.builtin.shell: groupadd ansiblers
+      become: true
+    - name: Add ansible users to the group
+      ansible.builtin.shell: sudo usermod -aG ansiblers ansible1
+      become: true
 
-### Add Users to Groups#
-
-
-
-### Permissions#########
+### Permissions ###
